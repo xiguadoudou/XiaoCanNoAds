@@ -1,0 +1,34 @@
+name: Publish v0.4
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-v0.4.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-v0.4
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'xiguadoudou/XiaoCanNoAds'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_COMMIT: ${{ github.sha }}
+    steps:
+      - name: Verify assets and publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view 4-0.4 --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "Release already exists; leaving it unchanged."
+            exit 0
+          fi
+          for filename in XiaoCan-NoAds-v0.4.apk XiaoCan-NoAds-v0.4-source.zip NOTES.md; do
+            curl --fail --location --retry 3 --retry-all-errors --output "$filename" "https://raw.githubusercontent.com/xiguadoudou/XiaoCanNoAds/$RELEASE_COMMIT/releases/v0.4/$filename"
+          done
+          printf '%s\n' 'b8c1a8f546b2fa7ad5eb9d6143385947d69b94b90ebd9d662975181f7ff6a26d  XiaoCan-NoAds-v0.4.apk' '1be0745955226bd8d865400f9b0e6ed14ee4ffbae7e28260980d93e28534473b  XiaoCan-NoAds-v0.4-source.zip' | sha256sum --check
+          gh release create 4-0.4 XiaoCan-NoAds-v0.4.apk XiaoCan-NoAds-v0.4-source.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "小蚕去广告 v0.4" --notes-file NOTES.md

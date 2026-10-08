@@ -61,7 +61,7 @@ def main():
         run('keytool', '-genkeypair', '-keystore', key, '-storetype', 'JKS', '-storepass', 'android', '-keypass', 'android',
             '-alias', 'module', '-keyalg', 'RSA', '-keysize', '2048', '-validity', '10000',
             '-dname', 'CN=XiaoCanNoAds Test Module', '-noprompt')
-    output = BUILD/'XiaoCan-NoAds-v0.3.apk'
+    output = BUILD/'XiaoCan-NoAds-v0.4.apk'
     run('java', '-cp', os.pathsep.join((str(TOOLS/'apksigner.jar'), str(signer))), 'Sign', BUILD/'unsigned.apk', output, key)
     print('Built:', output)
 

@@ -1,15 +1,15 @@
-# 小蚕去广告 v0.3（LSPosed 测试版）
-## v0.3 下载
+# 小蚕去广告 v0.4
 
-- [安装 APK](https://github.com/xiguadoudou/XiaoCanNoAds/raw/refs/heads/main/releases/v0.3/XiaoCan-NoAds-v0.3.apk)
-- [下载完整源码 ZIP](https://github.com/xiguadoudou/XiaoCanNoAds/raw/refs/heads/main/releases/v0.3/XiaoCan-NoAds-v0.3-source.zip)
-- [发布说明与 SHA-256](releases/v0.3/NOTES.md)
-
-测试版：已完成编译、签名及静态核对，尚未在真实手机中验证。
-
+[下载 v0.4 APK](https://github.com/xiguadoudou/XiaoCanNoAds/releases/download/4-0.4/XiaoCan-NoAds-v0.4.apk) · [发布页面](https://github.com/xiguadoudou/XiaoCanNoAds/releases/tag/4-0.4)
 
 适配本次上传的 **小蚕惠生活 3.21.2 / versionCode 2985**，包名 `com.realtech.xiaocan`。
-模块包名 `local.xiaocan.noads`，使用传统 Xposed API 82。
+模块包名 `io.github.xiguadoudou.xiaocan.noads`，使用传统 Xposed API 82。
+
+## v0.4 变更
+
+- 使用与 GitHub 账号对应的 Application ID，便于申请 LSPosed 仓库收录。
+- 拦截规则与 v0.3 相同。
+- 这是新包名：安装后停用旧模块，再在 LSPosed 启用新版，仅勾选小蚕惠生活并强停重启。可卸载旧模块，无需卸载小蚕。
 
 ## v0.3 新增
 
@@ -29,7 +29,7 @@
 
 ## 安装
 
-1. 在手机上安装 `XiaoCan-NoAds-v0.3.apk`。这是普通模块 APK，不是刷机 ZIP，不需要替换原软件。
+1. 在手机上安装 `XiaoCan-NoAds-v0.4.apk`。这是普通模块 APK，不是刷机 ZIP，不需要替换原软件。
 2. 打开 LSPosed → 模块 → **小蚕去广告**，开启模块。
 3. 作用域只勾选 **小蚕惠生活（com.realtech.xiaocan）**。
 4. 强行停止小蚕惠生活并重新启动。若未生效，重启手机再测试。
@@ -58,14 +58,14 @@
 
 - 已通过 Java 编译、DEX 生成、APK 打包和 v2 签名验证。
 - 已静态核对所选类、方法参数数量、返回类型及反射字段存在。
-- **尚未在真实手机/LSPosed 中运行验证**，因此不能保证所有弹窗都已去除或完全没有兼容问题。
+- 用户已于 2026-10-08 在自己的手机上实测 v0.3 并反馈运行正常。v0.4 仅调整模块 Application ID 和版本信息，广告拦截规则不变；新包名 APK 尚待真机复测，其他设备与应用版本尚未验证。
 - 网页/H5/Flutter Dart 内自建的其他营销弹窗、服务器更换的推广样式，以及其他版本可能需要新增规则。更新小蚕软件后需重新核对。
 
 ## 你在手机上检查
 
 测试冷启动、退到后台再返回、首页及商城入口；检查是否仍有广告，能否正常进入主页。无需卸载小蚕、无需清除它的数据。
 
-若仍有广告：截图或录屏保留触发步骤；在 LSPosed 中导出模块日志，寻找 `[XiaoCanNoAds]`。`loaded v0.3` 表示进入了模块入口，`hooked ...` 表示安装了对应 Hook，`blocked ...` 表示触发了拦截。若只有 loaded 没有业务类 hooked，需结合日志调整加固加载时机。日志可能包含设备及应用信息，分享前可删去无关个人信息。
+若仍有广告：截图或录屏保留触发步骤；在 LSPosed 中导出模块日志，寻找 `[XiaoCanNoAds]`。`loaded v0.4` 表示进入了模块入口，`hooked ...` 表示安装了对应 Hook，`blocked ...` 表示触发了拦截。若只有 loaded 没有业务类 hooked，需结合日志调整加固加载时机。日志可能包含设备及应用信息，分享前可删去无关个人信息。
 
 若出现闪退、启动卡住或功能异常：关闭 **小蚕去广告**，强停小蚕后再启动，必要时重启。模块关闭后不再安装这些 Hook。
 
@@ -79,7 +79,7 @@
 python3 build.py
 ```
 
-此脚本自动下载并校验固定版本编译依赖，无需完整 Android SDK。输出 `app/build/XiaoCan-NoAds-v0.3.apk`，保留 `app/build/module.jks` 可继续使用同一签名。重新生成签名后，需要先卸载旧模块，再安装新模块；不需要卸载小蚕。
+此脚本自动下载并校验固定版本编译依赖，无需完整 Android SDK。输出 `app/build/XiaoCan-NoAds-v0.4.apk`，保留 `app/build/module.jks` 可继续使用同一签名。重新生成签名后，需要先卸载旧模块，再安装新模块；不需要卸载小蚕。
 
 上传目标 APK SHA-256：
 

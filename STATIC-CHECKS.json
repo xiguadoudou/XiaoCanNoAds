@@ -99,7 +99,7 @@
     "ToBid": "adChannel"
   },
   "runtime_tested": false,
-  "module_version": "0.3",
+  "module_version": "0.4",
   "second_floor_change": "Use app eligibility gate to select MaterialHeader and retain original OnRefreshListener",
   "new_method_overloads": {
     "com.realtech.promotion.pages.home.HomeFragment$createObserver$30.emit": [

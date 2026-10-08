@@ -47,7 +47,7 @@ public final class Entry implements IXposedHookLoadPackage {
 
     @Override public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lp) throws Throwable {
         if (!PKG.equals(lp.packageName) || !PKG.equals(lp.processName)) return;
-        log("loaded v0.3, process=" + lp.processName);
+        log("loaded v0.4, process=" + lp.processName);
         // Install before the protector loads real application classes. Exact name allowlist only.
         XposedBridge.hookAllMethods(ClassLoader.class, "loadClass", new XC_MethodHook() {
             @Override protected void afterHookedMethod(MethodHookParam p) {
