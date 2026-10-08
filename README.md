@@ -1,4 +1,12 @@
 # 小蚕去广告 v0.3（LSPosed 测试版）
+## v0.3 下载
+
+- [安装 APK](https://github.com/xiguadoudou/XiaoCanNoAds/raw/refs/heads/main/releases/v0.3/XiaoCan-NoAds-v0.3.apk)
+- [下载完整源码 ZIP](https://github.com/xiguadoudou/XiaoCanNoAds/raw/refs/heads/main/releases/v0.3/XiaoCan-NoAds-v0.3-source.zip)
+- [发布说明与 SHA-256](releases/v0.3/NOTES.md)
+
+测试版：已完成编译、签名及静态核对，尚未在真实手机中验证。
+
 
 适配本次上传的 **小蚕惠生活 3.21.2 / versionCode 2985**，包名 `com.realtech.xiaocan`。
 模块包名 `local.xiaocan.noads`，使用传统 Xposed API 82。
