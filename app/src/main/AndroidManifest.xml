@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="local.xiaocan.noads" android:versionCode="3" android:versionName="0.3">
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="28" />
+    <application android:label="小蚕去广告" android:description="@string/module_description" android:allowBackup="false" android:hasCode="true">
+        <meta-data android:name="xposedmodule" android:value="true" />
+        <meta-data android:name="xposeddescription" android:value="适配小蚕惠生活 3.21.2：开屏、插屏、首页自动推广、原生广告容器及下拉二楼推广；请仅勾选小蚕惠生活。" />
+        <meta-data android:name="xposedminversion" android:value="82" />
+        <meta-data android:name="xposedscope" android:resource="@array/xposed_scope" />
+    </application>
+</manifest>

@@ -1,0 +1,200 @@
+{
+  "target_version": "3.21.2 (2985)",
+  "methods": {
+    "com.realtech.promotion.pages.home.HomeFragment.showSharerHomePopup": [
+      "V",
+      [
+        "Lcom/realtech/promotion/pages/home/state/SharerHomePopupState;"
+      ]
+    ],
+    "com.realtech.xiaocan.BaseAdActivity.loadAd": [
+      "V",
+      []
+    ],
+    "com.realtech.xiaocan.BaseAdActivity.requestExit": [
+      "V",
+      [
+        "Ljava/lang/String;"
+      ]
+    ],
+    "com.realtech.xiaocan.fragment.SecondTabPlacementFragment.enqueueBonusDialogIfNeeded": [
+      "V",
+      [
+        "Lcom/realtech/common/ad/DouyinEcMallAdInfo;"
+      ]
+    ],
+    "com.realtech.xiaocan.fragment.SecondTabPlacementFragment.enqueueFirstGuideDialogIfNeeded": [
+      "V",
+      []
+    ],
+    "com.realtech.xiaocan.service.SigMobAdServiceImpl.loadInterstitialAd": [
+      "V",
+      [
+        "Ljava/lang/String;",
+        "Lcom/realtech/common/service/AdCallback;"
+      ]
+    ],
+    "com.realtech.xiaocan.sigmob.SigMobUtils.load": [
+      "V",
+      [
+        "Ljava/lang/String;",
+        "Lcom/realtech/common/service/AdCallback;"
+      ]
+    ],
+    "com.realtech.xiaocan.sigmob.SigMobUtils.notifyError": [
+      "V",
+      [
+        "Ljava/lang/String;"
+      ]
+    ],
+    "com.realtech.xiaocan.sigmob.SigMobUtils.preload": [
+      "V",
+      [
+        "Ljava/lang/String;",
+        "Lcom/realtech/common/service/AdCallback;"
+      ]
+    ],
+    "com.realtech.xiaocan.sigmob.SigMobUtils.showInterstitialHost": [
+      "V",
+      []
+    ],
+    "com.realtech.am_sdk_plugin.AmInterstitialAdHandler.onMethodCall": [
+      "V",
+      [
+        "Lio/flutter/plugin/common/MethodCall;",
+        "Lio/flutter/plugin/common/MethodChannel$Result;"
+      ]
+    ],
+    "com.windmill.windmill_ad_plugin.interstitial.InterstitialAd.isReady": [
+      "Ljava/lang/Object;",
+      [
+        "Lio/flutter/plugin/common/MethodCall;"
+      ]
+    ],
+    "com.windmill.windmill_ad_plugin.interstitial.InterstitialAd.load": [
+      "Ljava/lang/Object;",
+      [
+        "Lio/flutter/plugin/common/MethodCall;"
+      ]
+    ],
+    "com.windmill.windmill_ad_plugin.interstitial.InterstitialAd.showAd": [
+      "Ljava/lang/Object;",
+      [
+        "Lio/flutter/plugin/common/MethodCall;"
+      ]
+    ],
+    "com.realtech.promotion.pages.home.tab.ext.HomeSecondFloorKt.checkSceondDFloorGuide": [
+      "V",
+      [
+        "Lcom/realtech/promotion/pages/home/HomeFragment;"
+      ]
+    ],
+    "com.realtech.promotion.pages.home.viewmodel.HomeViewModel.canUseHomeSecondFloor": [
+      "Z",
+      []
+    ]
+  },
+  "callback_fields": {
+    "AM": "channel",
+    "ToBid": "adChannel"
+  },
+  "runtime_tested": false,
+  "module_version": "0.3",
+  "second_floor_change": "Use app eligibility gate to select MaterialHeader and retain original OnRefreshListener",
+  "new_method_overloads": {
+    "com.realtech.promotion.pages.home.HomeFragment$createObserver$30.emit": [
+      [
+        "Ljava/lang/Object;",
+        [
+          "Lcom/realtech/promotion/pages/home/HomeEffect;",
+          "Lkotlin/coroutines/Continuation;"
+        ]
+      ],
+      [
+        "Ljava/lang/Object;",
+        [
+          "Ljava/lang/Object;",
+          "Lkotlin/coroutines/Continuation;"
+        ]
+      ]
+    ],
+    "com.realtech.promotion.pages.home.ext.HomeActivityBannerExtKt.renderHomeActivityBanner": [
+      [
+        "V",
+        [
+          "Lcom/realtech/promotion/pages/home/HomeFragment;",
+          "Ljava/util/List;"
+        ]
+      ]
+    ],
+    "com.realtech.promotion.pages.home.ext.HomeFabExtKt.initNewUserFabView$lambda$6": [
+      [
+        "Lkotlin/Unit;",
+        [
+          "Lcom/realtech/promotion/pages/home/HomeFragment;",
+          "Lcom/realtech/promotion/entity/HomeBottomData;"
+        ]
+      ]
+    ],
+    "com.realtech.promotion.service.CompetitorChallengeServiceImpl.shouldCheckHomeActivityPop": [
+      [
+        "Z",
+        []
+      ]
+    ],
+    "com.realtech.xiaocan.ad.BqtAdServiceImpl.loadAndShow": [
+      [
+        "V",
+        [
+          "Landroid/app/Activity;",
+          "Ljava/lang/String;",
+          "Landroid/view/ViewGroup;",
+          "Lcom/realtech/common/service/AdInteractionListener;"
+        ]
+      ]
+    ],
+    "com.realtech.xiaocan.ad.HxAdServiceImpl.loadAndShow": [
+      [
+        "V",
+        [
+          "Ljava/lang/String;",
+          "Landroid/view/ViewGroup;",
+          "Lcom/realtech/common/service/AdInteractionListener;"
+        ]
+      ]
+    ],
+    "com.realtech.xiaocan.ad.HxAdServiceImpl.preload": [
+      [
+        "V",
+        [
+          "Ljava/lang/String;",
+          "Landroid/content/Context;",
+          "Lcom/realtech/common/service/AdInteractionListener;"
+        ]
+      ]
+    ],
+    "com.realtech.xiaocan.ad.HxAdServiceImpl.show": [
+      [
+        "Z",
+        [
+          "Ljava/lang/String;",
+          "Landroid/view/ViewGroup;"
+        ]
+      ]
+    ],
+    "com.realtech.xiaocan.service.TobidNativeAdServiceImpl.loadAndShowIntoContainer": [
+      [
+        "V",
+        [
+          "Ljava/lang/String;",
+          "Lcom/realtech/common/widget/TobidAdContainer;",
+          "I",
+          "I",
+          "I",
+          "Lcom/realtech/common/service/TobidNativeAdService$OnAdLoadResultListener;"
+        ]
+      ]
+    ]
+  },
+  "promotion_effect_fields_checked": true
+}

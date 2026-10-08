@@ -1,0 +1,9 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'local.xiaocan.noads'
+    compileSdk 35
+    defaultConfig { applicationId 'local.xiaocan.noads'; minSdk 24; targetSdk 28; versionCode 3; versionName '0.3' }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+    buildTypes { release { minifyEnabled false } }
+}
+dependencies { compileOnly 'de.robv.android.xposed:api:82' }

@@ -1,0 +1,4 @@
+<resources>
+    <string name="module_description">小蚕惠生活 3.21.2 开屏、插屏及指定推广弹窗拦截（测试版）</string>
+    <string-array name="xposed_scope"><item>com.realtech.xiaocan</item></string-array>
+</resources>
