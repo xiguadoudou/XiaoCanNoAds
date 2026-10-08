@@ -1,0 +1,50 @@
+name: Publish v0.3
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-v0.3.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-v0.3
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'xiguadoudou/XiaoCanNoAds'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_COMMIT: ${{ github.sha }}
+    steps:
+      - name: Verify existing assets and publish v0.3
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v0.3 --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "v0.3 already exists; leaving it unchanged."
+            exit 0
+          fi
+          curl --fail --location --retry 2 --output XiaoCan-NoAds-v0.3.apk https://raw.githubusercontent.com/xiguadoudou/XiaoCanNoAds/ed6d2cf0cdbe74b7f649575eb1c133c135df5cd5/releases/v0.3/XiaoCan-NoAds-v0.3.apk
+          curl --fail --location --retry 2 --output XiaoCan-NoAds-v0.3-source.zip https://raw.githubusercontent.com/xiguadoudou/XiaoCanNoAds/ed6d2cf0cdbe74b7f649575eb1c133c135df5cd5/releases/v0.3/XiaoCan-NoAds-v0.3-source.zip
+          printf '%s\n' '89e659d24136834b7790eae7eb17c308f92ed8e7a27c7fbf9f57ae938faf2935  XiaoCan-NoAds-v0.3.apk' '169da155639abe5fcf9e805e267b37001c8d483f04e5d19788bc2b5742b1e8bd  XiaoCan-NoAds-v0.3-source.zip' | sha256sum --check
+          cat > release-notes.md <<'NOTES'
+          小蚕去广告 v0.3
+          
+          适配小蚕惠生活 3.21.2（versionCode 2985）。
+          
+          包含开屏、原生/Flutter 插屏、首页自动推广、活动轮播浮层、红包雨浮窗、指定原生广告容器和下拉二楼推广入口的拦截。
+          
+          安装 APK 后，在 LSPosed 启用“小蚕去广告”，作用域只选择 com.realtech.xiaocan，强停目标应用再启动。
+          
+          已通过编译、APK 签名和静态核对。用户于 2026-10-08 在自己的手机上实测，反馈运行正常；其他机型、系统及应用版本尚未验证。源码内 AUDIT.md 记录已处理范围及已知遗漏。此 APK 沿用本会话 v0.1/v0.2 的签名，可覆盖安装。
+          
+          SHA-256 XiaoCan-NoAds-v0.3-source.zip
+          169da155639abe5fcf9e805e267b37001c8d483f04e5d19788bc2b5742b1e8bd
+          
+          SHA-256 XiaoCan-NoAds-v0.3.apk
+          89e659d24136834b7790eae7eb17c308f92ed8e7a27c7fbf9f57ae938faf2935
+          NOTES
+          gh release create v0.3 XiaoCan-NoAds-v0.3.apk XiaoCan-NoAds-v0.3-source.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "小蚕去广告 v0.3" --notes-file release-notes.md
